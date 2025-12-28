@@ -1,7 +1,7 @@
 pipeline{
     agent {
         node {
-            label 'docker-agent-alpine'
+            label 'docker-agent-node'
         }
     }
     triggers {
@@ -12,7 +12,7 @@ pipeline{
             steps {
                 echo "Building..."
                 sh '''
-                echo "doing build stuff.."
+                npm install
                 '''
             }
         }
@@ -20,7 +20,7 @@ pipeline{
             steps {
                 echo "Testing..."
                 sh '''
-                echo "doing test stuff.."
+                npm start
                 '''
             }
         }
@@ -28,7 +28,7 @@ pipeline{
             steps {
                 echo "Deliver..."
                 sh '''
-                echo "doing delivery stuff.."
+                echo "Everything worked"
                 '''
             }
         }
